@@ -1,0 +1,10 @@
+<ul class="select-room">
+  <li ng-repeat="room in list" id="channel-{{room.id}}">
+    <ul ng-repeat="avatar in users[room.id]">
+      <li class="users-list">
+        <img ng-src="http://www.gravatar.com/avatar/{{avatar.email_md5}}" class="face" />
+      </li>
+    </ul>
+    {{room.title}}
+  </li>
+</ul>

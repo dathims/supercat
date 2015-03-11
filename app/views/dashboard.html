@@ -1,0 +1,22 @@
+<div class="jumbotron">
+  <div class="md-tile-left">
+    <img ng-src="http://www.gravatar.com/avatar/{{user.gravatar}}" class="face" />
+  </div>
+  <div class="profil" ng-bind="user.email"></div>
+  <div class="create-room">
+    <a ng-href="#/create-room">Create room</a>
+  </div>
+  <div class="discover">
+    <a ng-href="#/discover">Discover the world</a>
+  </div>
+</div>
+<ul class="select-room" ng-controller="DiscoverCtrl">
+  <li ng-repeat="room in list" id="channel-{{room.id}}">
+    <ul ng-repeat="avatar in users[room.id]">
+      <li class="users-list">
+        <img ng-src="http://www.gravatar.com/avatar/{{avatar.email_md5}}" class="face" />
+      </li>
+    </ul>
+    {{room.title}}
+  </li>
+</ul>
