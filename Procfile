@@ -1,1 +1,1 @@
-web: grunt serve
+web: sh dist/
