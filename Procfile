@@ -1,1 +1,1 @@
-web: sh dist/
+heroku ps:scale web=1
