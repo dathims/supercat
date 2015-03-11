@@ -1,2 +1,1 @@
-heroku ps:scale web=1
-web: dist
+web: node web.js
