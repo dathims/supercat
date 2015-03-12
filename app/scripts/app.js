@@ -22,7 +22,7 @@ angular
     'restangular',
     'LocalStorageModule'
   ])
-  .config(function ($routeProvider) {
+  .config(function($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/dashboard.html',
@@ -56,15 +56,15 @@ angular
         redirectTo: '/login'
       });
   })
-  .config(function(RestangularProvider){
+  .config(function(RestangularProvider) {
     RestangularProvider.setBaseUrl('http://localhost:3000');
     RestangularProvider.setRequestSuffix('.json');
   })
-  .config(function (localStorageServiceProvider) {
+  .config(function(localStorageServiceProvider) {
     localStorageServiceProvider.setPrefix('_supercat');
   })
-  .run(function(localStorageService, Restangular){
-    if(localStorageService.get('user')){
+  .run(function(localStorageService, Restangular) {
+    if (localStorageService.get('user')) {
       Restangular.configuration.defaultHeaders['X-CSRF-Token'] = localStorageService.get('user')['auth_token'];
     }
   });

@@ -1,4 +1,4 @@
-<ul class="select-room">
+<ul class="select-room" ng-controller="GlobalCtrl">
   <li ng-repeat="room in list" id="channel-{{room.id}}">
     <ul ng-repeat="avatar in users[room.id] | limitTo:1">
       <li class="users-list">

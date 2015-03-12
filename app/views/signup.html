@@ -1,11 +1,11 @@
-<div class="mobile-padding">
-  <ng-include src="'/views/include/logo.html'"></ng-include>
+<div class="mobile-padding" ng-controller="GlobalCtrl">
+  <ng-include src="'views/include/logo.html'"></ng-include>
   <form ng-submit="submit()">
     <input type="email" placeholder="Email address" class="form-control" id="exampleInputEmail1" ng-model="user.email">
     <input type="password" placeholder="Password" class="form-control" id="exampleInputEmail1" ng-model="user.password">
     <input type="password" placeholder="Password confirmation" class="form-control" id="exampleInputEmail1" ng-model="user.password_confirmation">
     <input type="text" class="form-control" placeholder="pseudo" id="exampleInputPseudo" ng-model="user.username" placeholder="pseudo">
     <button type="submit" class="btn-submit">Submit</button>
-  </form>  
+  </form>
   <a href="#/login" class="btn-round"><span class="vertical-line"></span><span class="horizontal-line"></span></a>
 </div>
