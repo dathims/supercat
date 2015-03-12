@@ -48,8 +48,12 @@ angular
         templateUrl: 'views/create-room.html',
         controller: 'CreateRoomCtrl'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/login'
       });
   })
   .config(function(RestangularProvider){

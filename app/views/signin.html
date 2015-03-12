@@ -1,11 +1,17 @@
-<ng-include src="'/views/include/logo.html'"></ng-include>
-<form ng-submit="submit()">
-  <div class="input-container">
-    <input type="email" placeholder="Email address" class="white form-control" id="exampleInputEmail1" ng-model="user.email">
-  </div>
-  <div class="input-container" ng-show="displayPassword">
-    <input type="password" placeholder="Password" class="white form-control" id="exampleInputPassword" ng-model="user.password">
-  </div>
-  <button type="submit" class="btn-submit">Submit</button>
-</form>
-<a class="link center white block" ng-click="togglePassword()">Forgot your password ?</a>
+<div class="mobile-padding">
+  <ng-include src="'/views/include/logo.html'"></ng-include>
+  <form ng-submit="submit()">
+    <div class="input-container">
+      <input type="email" placeholder="Email address" class="white form-control" id="exampleInputEmail1" ng-model="user.email">
+    </div>
+    <div class="input-container password-input" ng-show="displayPassword">
+      <input type="password" placeholder="Password" class="white form-control" id="exampleInputPassword" ng-model="user.password">
+    </div>
+    <button type="submit" class="btn-submit">Submit</button>
+  </form>
+  <button class="unset link center white block" id="forget-password" ng-click="togglePassword()">
+    <span ng-if="!displayPassword">I Forget my password ?</span>
+    <span ng-if="displayPassword">I remember my password</span>
+  </button>
+  <a href="#/login" class="btn-round"><span class="vertical-line"></span><span class="horizontal-line"></span></a>
+</div>

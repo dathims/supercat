@@ -13,11 +13,11 @@ angular.module('supercatApp')
     $scope.list = [];
     $scope.users =[];
 
-    $scope.getUsers = function (channel_id) {
-      Restangular.one('channels', channel_id).all('users').getList().then(function(result){
-        $scope.users[channel_id] = result;
+    $scope.getUsers = function (channelId) {
+      Restangular.one('channels', channelId).all('users').getList().then(function(result){
+        $scope.users[channelId] = result;
       });
-    }
+    };
 
     Channels.getList().then(function(result){
       $scope.list = result;

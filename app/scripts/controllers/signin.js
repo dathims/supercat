@@ -8,7 +8,7 @@
  * Controller of the supercatApp
  */
 angular.module('supercatApp')
-  .controller('SigninCtrl', ['$scope', 'userService', '$location', 'geolocation', 'Restangular', 'localStorageService', function($scope, userService, $location, geolocation, Restangular, localStorageService) {
+  .controller('SigninCtrl', ['$scope', '$location', 'geolocation', 'Restangular', 'localStorageService', function($scope, $location, geolocation, Restangular, localStorageService) {
 
     geolocation.getLocation().then(function(data){
       $scope.coords = {lat:data.coords.latitude, long:data.coords.longitude};

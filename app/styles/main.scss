@@ -110,16 +110,21 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 1vw;
+  padding: 0;
 }
 .container-logo {
-  height: 50vh;
+  height: 40vh;
   vertical-align: middle;
-  line-height: 30%;
+  line-height: 65vh;
   text-align: center;
   img {
     @extend .divide;
   }
+}
+.button-like {
+  display: block;
+  text-decoration: none;
+  text-align: center;
 }
 .btn-submit {
   @extend .unset;
@@ -132,6 +137,33 @@ body {
     color: white;
   }
 }
+
+.btn-link {
+  @extend .unset;
+  background-color: $red-1;
+  width: 100%;
+  border-radius: 25px;
+  padding: 10px;
+  color: $red-0;
+  margin-bottom: 20px;
+  &:hover {
+    color: white;
+  }
+}
+
+.btn-facebook {
+  @extend .unset;
+  background-color: $facebook-1;
+  width: 100%;
+  border-radius: 25px;
+  padding: 10px;
+  color: white;
+  margin-bottom: 20px;
+  &:hover {
+    color: white;
+  }
+}
+
 input[type=text], input[type=email], input[type=password] {
   @extend .unset;
   background: rgba(0,0,0,0.1);
@@ -140,4 +172,89 @@ input[type=text], input[type=email], input[type=password] {
   width: 100%;
   display: block;
   margin-bottom: 20px;
+  text-indent: 10px;
+  -webkit-transition: all 1s;
+  text-decoration: none;
+  transition: all 1s;
+  &:hover, &:focus {
+    background: rgba(163,17,40,0.8);
+    color: #fff;
+    -webkit-transition: background 1s;
+    transition: background 1s;
+  }
+}
+.ng-hide {
+  margin-top: -60px;
+  opacity: 0;
+  -webkit-opacity: 0;
+  -webkit-transition: all .1s;
+  transition: all .1s;
+  z-index: -1;
+}
+.password-input {
+  -webkit-transition: all .1s;
+  transition: all .1s;
+}
+#forget-password {
+  margin-top: 20px;
+  background: transparent;
+}
+#create-account {
+    margin-top: 20px;
+    background: transparent;
+}
+ul.select-room {
+  padding: 0;
+  margin: 0;
+  background: white;
+  > li {
+    list-style: none;
+    margin: 0;
+    border-top: 1px solid $dark;
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+.mobile-padding {
+  padding: 2vw
+}
+
+.btn-round {
+  @extend .unset;
+  background-color: $red-1;
+  width: 50px;
+  height: 50px;
+  border-radius: 45px;
+  padding: 10px;
+  color: $red-0;
+  position: relative;
+  margin:10px auto;
+  display: block;
+  transform: rotate(45deg);
+    transform-origin: 50%;
+  &:hover {
+    color: white;
+  }
+  .vertical-line {
+    width: 2px;
+    height: 80%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -40%;
+    margin-left: -1px;
+    background: $red-0;
+  }
+  .horizontal-line {
+    height: 2px;
+    width: 80%;
+    left: 50%;
+    top: 50%;
+    margin-top: -1px;
+    margin-left: -40%;
+    position: absolute;
+    background: $red-0;
+  }
 }

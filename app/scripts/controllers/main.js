@@ -18,11 +18,11 @@ angular.module('supercatApp')
     });
 
     if(!localStorageService.isSupported) {
-      alert('Your device is not supported');
+      return;
     }
 
     if(!localStorageService.get('local')) {
-      alert('Please accept geolocalisation to continue with this incredible experience');
+      //
     }
 
     if (localStorageService.get('user')) {

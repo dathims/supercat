@@ -25,6 +25,6 @@ angular.module('supercatApp')
 
       Channels.post({channel: $scope.channel}).then(function(result){
         console.log(result);
-      })
+      });
     };
   }]);
