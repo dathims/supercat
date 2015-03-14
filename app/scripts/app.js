@@ -57,6 +57,10 @@ angular
         templateUrl: 'views/dashboard.html',
         controller: 'MainCtrl'
       })
+      .when('/channels/:id', {
+        templateUrl: 'views/channels/show.html',
+        controller: 'ChannelCtrl'
+      })
       .otherwise({
         redirectTo: '/login'
       });
@@ -71,7 +75,7 @@ angular
   })
   .run(function(localStorageService, Restangular) {
     if (localStorageService.get('user')) {
-      Restangular.configuration.defaultHeaders['X-CSRF-Token'] = localStorageService.get('user')['auth_token'];
+      Restangular.configuration.defaultHeaders['X-CSRF-Token'] = localStorageService.get('user').auth_token;
     }
 
     

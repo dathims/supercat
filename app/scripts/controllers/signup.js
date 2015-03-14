@@ -24,6 +24,7 @@ angular.module('supercatApp')
           if(localStorageService.isSupported) {
             localStorageService.set(key, val);
           }
+          Restangular.configuration.defaultHeaders['X-CSRF-Token'] = result.auth_token;
           $location.path('/dashboard');
           console.log(user);
         });
