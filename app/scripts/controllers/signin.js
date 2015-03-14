@@ -10,6 +10,7 @@
 angular.module('supercatApp')
   .controller('SigninCtrl', ['$scope', '$location', 'geolocation', 'Restangular', 'localStorageService', function($scope, $location, geolocation, Restangular, localStorageService) {
 
+    $scope.user = {};
     geolocation.getLocation().then(function(data){
       $scope.coords = {lat:data.coords.latitude, long:data.coords.longitude};
     });
@@ -24,9 +25,10 @@ angular.module('supercatApp')
       if (!$scope.displayPassword) {
         Users.customPOST({user: $scope.user}, 'password').then(function(result){
           console.log(result);
-          $location.path('/main');
+          $location.path('/dashboard');
         });
       } else {
+        console.log($scope.user);
         Users.customPOST({user: $scope.user}, 'sign_in').then(function(result){
           console.log(result);
           var key = 'user';
@@ -34,7 +36,8 @@ angular.module('supercatApp')
           if(localStorageService.isSupported) {
             localStorageService.set(key, val);
           }
-          $location.path('/main');
+          Restangular.configuration.defaultHeaders['X-CSRF-Token'] = result.auth_token;
+          $location.path('/dashboard');
         });
       }
     };

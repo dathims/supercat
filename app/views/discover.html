@@ -1,4 +1,5 @@
-<ul class="select-room" ng-controller="GlobalCtrl">
+<ng-include src="'views/include/header.html'"></ng-include>
+<ul class="select-room">
   <li ng-repeat="room in list" id="channel-{{room.id}}">
     <ul ng-repeat="avatar in users[room.id] | limitTo:1">
       <li class="users-list">

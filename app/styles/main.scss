@@ -20,86 +20,16 @@ body {
   padding-bottom: 20px;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
-  }
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-
-  p + h4 {
-    margin-top: 28px;
-  }
-}
 
 .face {
   border-radius: 30px;
-  border: 1px solid #ddd;
   width: 48px;
   margin: 16px;
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
 }
 
 .container-mobile {
@@ -206,11 +136,40 @@ input[type=text], input[type=email], input[type=password] {
 ul.select-room {
   padding: 0;
   margin: 0;
-  background: white;
+  border: 2px solid white;
+  width: 85%;
+  margin: 10px auto 25vh auto;
+  border-radius: 7px;
   > li {
     list-style: none;
     margin: 0;
-    border-top: 1px solid $dark;
+    color: white;
+    border-bottom: 1px solid white;
+    padding: 10px;
+    position: relative;
+    &:last-child {
+      border-bottom: 0 none;
+    }
+    .date-room {
+      font-weight: 100;
+      font-size: .8em;
+    }
+    .btn-join {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      width: 25%;
+      text-align: center;
+      vertical-align: middle;
+      background: white;
+      color: black;
+      text-decoration: none;
+      line-height: 9vh;
+      font-weight: 100;
+      font-size: .9em;
+      border-bottom: 1px dotted #777;
+    }
     ul {
       margin: 0;
       padding: 0;
@@ -257,4 +216,163 @@ ul.select-room {
     position: absolute;
     background: $red-0;
   }
+}
+
+.profil-background {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  overflow-y: auto;
+  overflow-x: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.75);
+  }
+}
+.dashboard-contain {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  overflow-y: auto;
+  overflow-x: hidden;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: $red-0;
+}
+h2.entry-title {
+  width: 85%;
+  margin: auto;
+  color: white;
+  font-weight: 400;
+  font-size: 1.2em;
+}
+#map { position:absolute; top:0; height: 30%; width:100%; }
+.profil-area {
+  text-align: center;
+}
+.bloc-50{
+  position: fixed;
+  width: 50%;
+  height: 10vh;
+  line-height: 10vh;
+  text-align: center;
+  background: #222;
+  color: #888;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 1em;
+  a {
+    color: #888;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 1em;
+  }
+}
+.create-room {
+  left: 0;
+  bottom: 0;
+  border-right: 1px solid #333;
+}
+.discover {
+  right: 0;
+  bottom: 0;
+  border-left: 1px solid #000;
+}
+.header {
+  height: 10vh;
+  text-align: center;
+  position: relative;
+  button {
+    @extend .unset;
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    background: transparent;
+    left: 0;
+    top: 10px;
+    left: 20px;
+    .line {
+      height: 3px;
+      background: rgba(255,255,255,.8);
+      overflow: hidden;
+      border-radius: 5px;
+      display: block;
+      margin-bottom: 7px;
+    }
+  }
+  .supercat-logo {
+    margin-top: 10px;
+  }
+}
+
+
+.st-effect-7.st-container {
+	perspective: 1500px;
+	perspective-origin: 0% 50%;
+}
+
+.st-effect-7 .st-pusher {
+	transform-style: preserve-3d;
+}
+
+.st-effect-7.st-menu-open .st-pusher {
+	transform: translate3d(300px, 0, 0);
+}
+
+.st-effect-7.st-menu {
+	transform: translate3d(-100%, 0, 0) rotateY(-90deg);
+	transform-origin: 100% 50%;
+	transform-style: preserve-3d;
+}
+
+.st-effect-7.st-menu-open .st-effect-7.st-menu {
+	visibility: visible;
+	transform: translate3d(-100%, 0, 0) rotateY(0deg);
+}
+
+.st-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  visibility: hidden;
+  width: 300px;
+  height: 100%;
+  background: #48a770;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.st-pusher {
+  position: relative;
+  left: 0;
+  z-index: 99;
+  height: 100%;
+  perspective: 1000px;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+}
+.st-container {
+  position: relative;
+  overflow: hidden;
+
+}
+.st-container, .st-pusher, .dashboard-contain {
+  height: 100%;
+}
+.dashboard-contain, .st-content-inner {
+  position: relative;
+}
+.dashboard-contain {
+  overflow-y: scroll;
 }

@@ -31,7 +31,6 @@ angular.module('supercatApp')
     } else {
       $location.url('/signin');
     }
-
     // var User = $resource('http://localhost:3000/users/:id.json', {
     //   id: '@id'
     // }, {update: {method: 'PUT'}});

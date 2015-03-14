@@ -20,7 +20,8 @@ angular
     'geolocation',
     'ngMaterial',
     'restangular',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'angularMoment'
   ])
   .config(function($routeProvider) {
     $routeProvider
@@ -52,6 +53,10 @@ angular
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
+      .when('/dashboard', {
+        templateUrl: 'views/dashboard.html',
+        controller: 'MainCtrl'
+      })
       .otherwise({
         redirectTo: '/login'
       });
@@ -59,6 +64,7 @@ angular
   .config(function(RestangularProvider) {
     RestangularProvider.setBaseUrl('http://localhost:3000');
     RestangularProvider.setRequestSuffix('.json');
+    RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json', 'Accept': 'application/json'});
   })
   .config(function(localStorageServiceProvider) {
     localStorageServiceProvider.setPrefix('_supercat');
@@ -67,4 +73,7 @@ angular
     if (localStorageService.get('user')) {
       Restangular.configuration.defaultHeaders['X-CSRF-Token'] = localStorageService.get('user')['auth_token'];
     }
+
+    
+
   });
