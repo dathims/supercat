@@ -1,31 +1,24 @@
+<ng-include src="'views/include/bottom-action.html'"></ng-include>
 <div id="st-container" class="st-container st-effect-7" ng-class="{'st-menu-open': toggleNavOpen}" ng-controller="NavigationCtrl">
-<!-- content push wrapper -->
-	<div class="st-pusher">
+  <!-- content push wrapper -->
+  <div class="st-pusher">
     <nav class="st-menu st-effect-7" id="menu-7">
       <!-- sidebar content -->
-      toto va à la plage
-  </nav>
-<div class="dashboard-contain">
+      <ng-include src="'views/include/navigation.html'"></ng-include>
+    </nav>
+    <div class="dashboard-contain">
 
-  <ng-include src="'views/include/header.html'"></ng-include>
-  <h2 class="entry-title">Top channels</h2>
-  <ul class="select-room" ng-controller="DiscoverCtrl">
-    <li ng-repeat="room in list" id="channel-{{room.id}}">
-      <div class="title-room" ng-bind="room.title"></div>
-      <div class="date-room" am-time-ago="room.created_at"></div>
-      <a ng-href="#/channels/{{room.id}}" class="btn-join">Join</a>
-    </li>
-  </ul>
+      <ng-include src="'views/include/header.html'"></ng-include>
+      <h2 class="entry-title">Top channels</h2>
+      <ul class="select-room" ng-controller="DiscoverCtrl">
+        <li ng-repeat="room in list" id="channel-{{room.id}}">
+          <div class="title-room" ng-bind="room.title"></div>
+          <div class="date-room" am-time-ago="room.created_at"></div>
+          <a ng-href="#/channels/{{room.id}}" class="btn-join">Join</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- /st-pusher -->
 </div>
-<div class="create-room bloc-50">
-  <a ng-href="#/create-room">Create room</a>
-</div>
-<div class="discover bloc-50">
-  <a ng-href="#/discover">Discover the world</a>
-</div>
-
-
-
-	</div><!-- /st-pusher -->
-
-</div><!-- /st-container -->
+<!-- /st-container -->

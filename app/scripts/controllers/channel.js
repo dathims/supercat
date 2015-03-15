@@ -33,5 +33,12 @@
           $scope.message.body = '';
         });
       }
-    };  
+    };
+    if (localStorageService.get('user')) {
+      $scope.user = localStorageService.get('user');
+      $scope.user.gravatar = $scope.user.email_md5;
+    } else {
+      $location.url('/login');
+    }
+
  }]);

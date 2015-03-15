@@ -8,10 +8,13 @@
  * Controller of the supercatApp
  */
 angular.module('supercatApp')
-  .controller('NavigationCtrl', function ($scope) {
-    $scope.toggleNavOpen = false;
-    $scope.toggleNav = function(){
-      $scope.toggleNavOpen = !$scope.toggleNavOpen;
-      console.log('scope, ', $scope.toggleNavOpen);
+  .controller('NavigationCtrl', ['$scope','localStorageService', '$location', '$rootScope', function ($scope, localStorageService, $location, $rootScope) {
+    $rootScope.toggleNavOpen = false;
+    $rootScope.toggleNav = function(){
+      $rootScope.toggleNavOpen = !$rootScope.toggleNavOpen;
     };
-  });
+    $scope.disconnectProfil = function() {
+      $location.path('/login');
+      return localStorageService.clearAll();
+    };
+  }]);

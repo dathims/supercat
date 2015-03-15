@@ -272,6 +272,9 @@ h2.entry-title {
   text-decoration: none;
   font-weight: 300;
   font-size: 1em;
+  z-index: 999;
+  transform-style: preserve-3d;
+  -webkit-transition: all 0.5s;
   a {
     color: #888;
     text-decoration: none;
@@ -329,6 +332,11 @@ h2.entry-title {
 .st-effect-7.st-menu-open .st-pusher {
 	transform: translate3d(300px, 0, 0);
 }
+.bloc-50.st-menu-open {
+  transform: translate3d(300px, 0, 0);
+  transform-style: preserve-3d;
+  -webkit-transition: all 0.5s;
+}
 
 .st-effect-7.st-menu {
 	transform: translate3d(-100%, 0, 0) rotateY(-90deg);
@@ -349,9 +357,12 @@ h2.entry-title {
   visibility: hidden;
   width: 300px;
   height: 100%;
-  background: #48a770;
+  background: $dark-0;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  -webkit-box-shadow: inset -10px 0px 20px -10px rgba(0,0,0,0.8);
+  -moz-box-shadow: inset -10px 0px 20px -10px rgba(0,0,0,0.8);
+  box-shadow: inset -10px 0px 20px -10px rgba(0,0,0,0.8);
 }
 .st-pusher {
   position: relative;
@@ -375,4 +386,136 @@ h2.entry-title {
 }
 .dashboard-contain {
   overflow-y: scroll;
+}
+
+.nav-menu {
+  padding: 0;
+  margin: 0;
+  li {
+    padding: 0;
+    list-style: none;
+    color: white;
+    a {
+      text-decoration: none;
+      display: block;
+      border-bottom: 1px solid #333;
+      padding: 20px 0;
+      text-indent: 20px;
+      color: #777;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
+
+.disconnect-btn {
+  @extend .unset;
+  left: 0;
+}
+.delete-btn {
+  @extend .unset;
+  right: 0;
+}
+.nav-button {
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  height: 25vh;
+  background: #222;
+  border-top: 1px solid #333;
+  border-right: 1px solid #333;
+  color: #777;
+  &:hover {
+    color: white;
+  }
+}
+
+.chat-input-bar {
+  background: $red-1;
+  bottom: 0;
+  top: 85vh;
+  left: 0;
+  right: 0;
+  position: absolute;
+  input[type=text] {
+    background: $red-1;
+    height: 15vh;
+    display: block;
+    margin:0;
+    width: 85%;
+    color: #f0f0f0;
+  }
+  .chat-send {
+    @extend .unset;
+    position: absolute;
+    right: 0;
+    color: #fff;
+    background: transparent;
+    top: 0;
+    height: 15vh;
+    margin: 0;
+    border: 0;
+    padding: 20px;
+    width: 15%;
+    text-align: center;
+  }
+}
+.chat-messages-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  padding: 15px 25px 60px;
+}
+.chat-message-bubble {
+  display: inline-block;
+  font-size: 14px;
+  max-width: 80%;
+  background: #fff;
+  padding: 8px 14px;
+  border-radius: 18px;
+  min-width: 0;
+  margin: 0;
+}
+
+.chat-message {
+  position: relative;
+  font-size: 0;
+  margin-bottom: 20px;
+  .time-ago {
+    position: absolute;
+    bottom: -15px;
+    left:0;
+    right: 0;
+    font-size: 10px;
+    color: black;
+    opacity:.3;
+    text-align:left;
+    text-indent: 10px;
+  }
+}
+
+.chat-messages {
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  position: absolute;
+  background: $red-0;
+  top: 10vh;
+  bottom: 15vh;
+}
+.chat-message-self {
+  text-align: right;
+  .time-ago {
+    position: absolute;
+    text-align:right;
+    text-indent: -5px;
+  }
+}
+
+.chat-message-self .chat-message-bubble, .chat-message-effect .chat-message-bubble {
+  background: $red-1;
+  color: white;
+  text-align: left;
 }
