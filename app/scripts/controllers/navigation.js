@@ -9,12 +9,25 @@
  */
 angular.module('supercatApp')
   .controller('NavigationCtrl', ['$scope','localStorageService', '$location', '$rootScope', function ($scope, localStorageService, $location, $rootScope) {
-    $rootScope.toggleNavOpen = false;
-    $rootScope.toggleNav = function(){
-      $rootScope.toggleNavOpen = !$rootScope.toggleNavOpen;
+    $scope.toggleNav = function(){
+      $scope.toggleNavOpen = !$scope.toggleNavOpen;
+      console.log($scope.toggleNavOpen);
     };
     $scope.disconnectProfil = function() {
       $location.path('/login');
       return localStorageService.clearAll();
     };
-  }]);
+  }]).directive('ngClickOrig', ['$parse', function($parse) {
+      return {
+        compile: function($element, attr) {
+          var fn = $parse(attr["ngClickOrig"]);
+          return function handler(scope, element) {
+            element.on('click', function(event) {
+              scope.$apply(function() {
+                fn(scope, {$event:event});
+              });
+            });
+          };
+        }
+     };
+ }]);;

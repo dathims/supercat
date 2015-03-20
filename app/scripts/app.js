@@ -23,6 +23,10 @@ angular
     'LocalStorageModule',
     'angularMoment'
   ])
+  .constant('envConfig', {
+        'url_prod': 'https://supertiger.herokuapp.com',
+        'url_dev': 'http://localhost:3000'
+  })
   .config(function($routeProvider) {
     $routeProvider
       .when('/', {
@@ -58,15 +62,15 @@ angular
         controller: 'MainCtrl'
       })
       .when('/channels/:id', {
-        templateUrl: 'views/channels/show.html',
+        templateUrl: 'views/channel.html',
         controller: 'ChannelCtrl'
       })
       .otherwise({
         redirectTo: '/login'
       });
   })
-  .config(function(RestangularProvider) {
-    RestangularProvider.setBaseUrl('http://localhost:3000');
+  .config(function(RestangularProvider, envConfig) {
+    RestangularProvider.setBaseUrl(envConfig.url_dev);
     RestangularProvider.setRequestSuffix('.json');
     RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json', 'Accept': 'application/json'});
   })
@@ -78,6 +82,5 @@ angular
       Restangular.configuration.defaultHeaders['X-CSRF-Token'] = localStorageService.get('user').auth_token;
     }
 
-    
 
   });
