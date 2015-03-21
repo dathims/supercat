@@ -9,9 +9,13 @@
       <ng-include src="'views/include/header.html'"></ng-include>
       <div class="chat-messages">
         <ol class="chat-messages-list">
-          <li ng-repeat="message in channel.messages | orderBy:'created_at'" class="chat-message" ng-class="{'chat-message-self': (user.id == message.author_id)}">
-            <div class="chat-message-bubble">{{message | json}}</div>
+          <li ng-repeat="message in channel.messages | orderBy:'created_at' :reverse" class="chat-message" ng-class="{'chat-message-self': (user.id == message.author_id)}">
+            <div class="chat-message-bubble">
+              <img ng-src="http://www.gravatar.com/avatar/{{message.author.email_md5}}?d=mm" class="face" />
+              {{message.body}}
+            </div>
             <span class="details">
+              <span class="author-pseudo" ng-bind="message.author.pseudo"></span>
               <span class="time-ago" am-time-ago="message.created_at"></span>
               <span class="author" ng-if="(message.distance >= 1)">{{message.distance | number:2}} km</span>
               <span class="author" ng-if="(message.distance < 1)">{{message.distance*100 | number:2}} m</span>
