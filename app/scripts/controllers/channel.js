@@ -8,8 +8,8 @@
  * Controller of the supercatApp
  */
 angular.module('supercatApp')
-  .controller('ChannelCtrl', ['$scope', '$routeParams','geolocation', 'Restangular', 'localStorageService', '$location', function($scope, $routeParams, geolocation, Restangular, localStorageService, $location) {
-    var dispatcher = new WebSocketRails('localhost:3000/websocket');
+  .controller('ChannelCtrl', ['$scope', '$routeParams','geolocation', 'Restangular', 'localStorageService', '$location', 'envConfig', function($scope, $routeParams, geolocation, Restangular, localStorageService, $location, envConfig) {
+    var dispatcher = new WebSocketRails(envConfig.production.domain + '/websocket');
     var channelDispatcher = dispatcher.subscribe('channel_' + $routeParams.id);
     $scope.local = localStorageService.get('local');
     var userLocal = localStorageService.get('user');
@@ -74,7 +74,7 @@ angular.module('supercatApp')
         localStorageService.set('local', $scope.local);
       });
       $scope.$apply(function() {
-        $scope.channel.messages.push(msg);
+        $scope.channel.messages.push(msg.message);
       });
       scrollBotChatMessage();
 

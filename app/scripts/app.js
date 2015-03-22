@@ -24,8 +24,15 @@ angular
     'angularMoment'
   ])
   .constant('envConfig', {
-        'url_prod': 'https://supertiger.herokuapp.com',
-        'url_dev': 'http://localhost:3000'
+        production: {
+            domain: 'supertiger.herokuapp.com',
+            isSSL: true
+        },
+        development: {
+          domain: 'localhost:3000',
+          isSSL: false
+        }
+
   })
   .config(function($routeProvider) {
     $routeProvider
@@ -70,7 +77,13 @@ angular
       });
   })
   .config(function(RestangularProvider, envConfig) {
-    RestangularProvider.setBaseUrl(envConfig.url_dev);
+    var prefix;
+    if(envConfig.isSSL) {
+      prefix = 'https://';
+    } else {
+      prefix = 'http://';
+    }
+    RestangularProvider.setBaseUrl(prefix + envConfig.production.domain);
     RestangularProvider.setRequestSuffix('.json');
     RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json', 'Accept': 'application/json'});
   })
