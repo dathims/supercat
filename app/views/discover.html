@@ -9,6 +9,7 @@
       <ng-include src="'views/include/header.html'"></ng-include>
       <ul class="select-room">
         <li ng-repeat="room in list" id="channel-{{room.id}}">
+          <img ng-src="{{room.image_urls.small}}" alt="an image">
           <ul ng-repeat="avatar in users[room.id] | limitTo:1">
             <li class="users-list">
               <img ng-src="http://www.gravatar.com/avatar/{{avatar.email_md5}}" class="face" />

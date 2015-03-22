@@ -12,6 +12,7 @@
       <h2 class="entry-title">Top channels</h2>
       <ul class="select-room" ng-controller="DiscoverCtrl">
         <li ng-repeat="room in list" id="channel-{{room.id}}">
+          <img ng-src="{{room.image_urls.large}}" alt="une image">
           <div class="title-room" ng-bind="room.title"></div>
           <div class="date-room" am-time-ago="room.created_at"></div>
           <a ng-href="#/channels/{{room.id}}" class="btn-join">Join</a>

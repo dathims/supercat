@@ -19,6 +19,6 @@ angular.module('supercatApp')
         $location.url('/login');
       }
       console.log('user authent');
-    }
+    };
     return factory;
   }]);

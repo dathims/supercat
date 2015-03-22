@@ -14,6 +14,7 @@
         <form ng-submit="createChannel()">
           <input placeholder="Title" ng-model="channel.title" type="text" placeholder="Title">
           <textarea placeholder="Description" ng-model="channel.description" columns="1" maxlength="150"></textarea>
+          <input type="file" fileread="channel.image">
           <button class="btn-link button-like">Save</button>
         </form>
       </div>

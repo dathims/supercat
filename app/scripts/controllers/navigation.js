@@ -20,7 +20,7 @@ angular.module('supercatApp')
   }]).directive('ngClickOrig', ['$parse', function($parse) {
       return {
         compile: function($element, attr) {
-          var fn = $parse(attr["ngClickOrig"]);
+          var fn = $parse(attr.ngClickOrig);
           return function handler(scope, element) {
             element.on('click', function(event) {
               scope.$apply(function() {
